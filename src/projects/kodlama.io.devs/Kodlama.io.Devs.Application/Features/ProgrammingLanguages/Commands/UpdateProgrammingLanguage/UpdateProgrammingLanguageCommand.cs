@@ -28,6 +28,7 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.Upd
             public async Task<UpdatedProgrammingLanguageDto> Handle(UpdateProgrammingLanguageCommand request, CancellationToken cancellationToken)
             {
                 await _programmingLanguageBusinessRules.ProgrammingLanguageShouldBeExist(request.Id);
+                await _programmingLanguageBusinessRules.ProgrammingLanguageNameCanNotBeDuplicatedWhenInserted(request.Name);
 
                 ProgrammingLanguage mappedProgrammingLanguage = _mapper.Map<ProgrammingLanguage>(request);
                 ProgrammingLanguage updatedProgrammingLanguage = await _programmingLanguageRepository.UpdateAsync(mappedProgrammingLanguage);
