@@ -19,7 +19,10 @@ public class EfRepositoryBase<TEntity, TContext> : IAsyncRepository<TEntity>, IR
 
     public async Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> predicate)
     {
-        return await Context.Set<TEntity>().FirstOrDefaultAsync(predicate);
+        TEntity result = await Context.Set<TEntity>().FirstOrDefaultAsync(predicate);
+        if (result != null)
+            Context.Entry(result).State = EntityState.Detached;
+        return result;
     }
 
     public async Task<IPaginate<TEntity>> GetListAsync(
