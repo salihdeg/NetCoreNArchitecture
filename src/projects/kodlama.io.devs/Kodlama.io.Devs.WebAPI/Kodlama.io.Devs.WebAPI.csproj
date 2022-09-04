@@ -22,10 +22,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Controllers\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\..\..\corePackages\Core.CrossCuttingConcers\Core.CrossCuttingConcerns.csproj" />
 	  <ProjectReference Include="..\Kodlama.io.Devs.Application\Kodlama.io.Devs.Application.csproj" />
 	  <ProjectReference Include="..\Kodlama.io.Devs.Persistence\Kodlama.io.Devs.Persistence.csproj" />
