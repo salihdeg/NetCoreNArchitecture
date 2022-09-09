@@ -3,6 +3,7 @@ using Kodlama.io.Devs.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Kodlama.io.Devs.Persistence.Migrations
 {
     [DbContext(typeof(BaseDbContext))]
-    partial class BaseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220908134846_Add-Programming-Technologies-And-Types")]
+    partial class AddProgrammingTechnologiesAndTypes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,11 +51,6 @@ namespace Kodlama.io.Devs.Persistence.Migrations
                         {
                             Id = 2,
                             Name = "Java"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "Rust"
                         });
                 });
 
@@ -101,13 +98,6 @@ namespace Kodlama.io.Devs.Persistence.Migrations
                             Name = "Google Guava",
                             ProgrammingLanguageId = 2,
                             ProgrammingTechnologyTypeId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "GGEZ",
-                            ProgrammingLanguageId = 3,
-                            ProgrammingTechnologyTypeId = 1
                         });
                 });
 
