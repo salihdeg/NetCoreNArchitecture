@@ -33,7 +33,7 @@ namespace Kodlama.io.Devs.WebAPI.Controllers
         public async Task<IActionResult> Delete([FromBody] DeleteProgrammingLanguageCommand deleteProgrammingLanguageCommand)
         {
             DeletedProgrammingLanguageDto result = await Mediator.Send(deleteProgrammingLanguageCommand);
-            return Ok(deleteProgrammingLanguageCommand);
+            return Ok(result);
         }
 
         [HttpGet]
