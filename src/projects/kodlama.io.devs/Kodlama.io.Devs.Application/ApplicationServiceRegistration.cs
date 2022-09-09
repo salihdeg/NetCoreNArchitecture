@@ -1,6 +1,8 @@
 ﻿using Core.Application.Pipelines.Validation;
 using FluentValidation;
 using Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Rules;
+using Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Rules;
+using Kodlama.io.Devs.Application.Features.ProgrammingTechnologyTypes.Rules;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -16,6 +18,8 @@ namespace Kodlama.io.Devs.Application
 
             //BusinessRules
             services.AddScoped<ProgrammingLanguageBusinessRules>();
+            services.AddScoped<ProgrammingTechnologyBusinessRules>();
+            services.AddScoped<ProgrammingTechnologyTypeBusinessRules>();
 
             //Other Transients
 
