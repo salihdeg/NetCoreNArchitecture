@@ -17,12 +17,32 @@ public class EfRepositoryBase<TEntity, TContext> : IAsyncRepository<TEntity>, IR
         Context = context;
     }
 
-    public async Task<TEntity?> GetAsync(Expression<Func<TEntity, bool>> predicate)
+    public TEntity Get(
+        Expression<Func<TEntity, bool>> predicate,
+        bool enableTracking = false, Func<IQueryable<TEntity>,
+            IIncludableQueryable<TEntity, object>>? include = null,
+        CancellationToken cancellationToken = default)
     {
-        TEntity result = await Context.Set<TEntity>().FirstOrDefaultAsync(predicate);
-        if (result != null)
-            Context.Entry(result).State = EntityState.Detached;
-        return result;
+        IQueryable<TEntity> queryable = Query();
+        if (!enableTracking) queryable = queryable.AsNoTracking();
+        if (include != null) queryable = include(queryable);
+        if (predicate != null) queryable = queryable.Where(predicate);
+        
+        return queryable.FirstOrDefault();
+    }
+
+    public async Task<TEntity?> GetAsync(
+        Expression<Func<TEntity, bool>> predicate,
+        bool enableTracking = false, Func<IQueryable<TEntity>,
+            IIncludableQueryable<TEntity, object>>? include = null,
+        CancellationToken cancellationToken = default)
+    {
+        IQueryable<TEntity> queryable = Query();
+        if (!enableTracking) queryable = queryable.AsNoTracking();
+        if (include != null) queryable = include(queryable);
+        if (predicate != null) queryable = queryable.Where(predicate);
+
+        return await queryable.FirstOrDefaultAsync();
     }
 
     public async Task<IPaginate<TEntity>> GetListAsync(
