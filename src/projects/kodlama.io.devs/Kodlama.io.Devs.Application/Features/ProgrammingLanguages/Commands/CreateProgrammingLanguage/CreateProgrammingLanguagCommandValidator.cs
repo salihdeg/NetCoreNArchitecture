@@ -2,9 +2,9 @@
 
 namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.CreateProgrammingLanguage
 {
-    public class CreateProgrammingLanguagCommanValidator : AbstractValidator<CreateProgrammingLanguageCommand>
+    public class CreateProgrammingLanguagCommandValidator : AbstractValidator<CreateProgrammingLanguageCommand>
     {
-        public CreateProgrammingLanguagCommanValidator()
+        public CreateProgrammingLanguagCommandValidator()
         {
             RuleFor(pl => pl.Name).NotEmpty();
         }

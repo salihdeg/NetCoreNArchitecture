@@ -2,9 +2,9 @@
 
 namespace Kodlama.io.Devs.Application.Features.ProgrammingLanguages.Commands.UpdateProgrammingLanguage
 {
-    public class UpdateProgrammingLanguagCommanValidator : AbstractValidator<UpdateProgrammingLanguageCommand>
+    public class UpdateProgrammingLanguagCommandValidator : AbstractValidator<UpdateProgrammingLanguageCommand>
     {
-        public UpdateProgrammingLanguagCommanValidator()
+        public UpdateProgrammingLanguagCommandValidator()
         {
             RuleFor(pl => pl.Name).NotEmpty();
         }
