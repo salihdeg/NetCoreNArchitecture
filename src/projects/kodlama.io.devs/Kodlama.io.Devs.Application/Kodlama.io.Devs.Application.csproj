@@ -19,9 +19,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include="Features\Authentication\Models\" />
 		<Folder Include="Features\ProgrammingLanguages\Constants\" />
 		<Folder Include="Features\ProgrammingTechnologies\Constants\" />
 		<Folder Include="Features\ProgrammingTechnologyTypes\Constants\" />
+		<Folder Include="Features\UserProfileSocialAccounts\Constants\" />
+		<Folder Include="Features\UserProfiles\Constants\" />
+		<Folder Include="Features\UserProfiles\Queries\" />
 	</ItemGroup>
 
 </Project>
