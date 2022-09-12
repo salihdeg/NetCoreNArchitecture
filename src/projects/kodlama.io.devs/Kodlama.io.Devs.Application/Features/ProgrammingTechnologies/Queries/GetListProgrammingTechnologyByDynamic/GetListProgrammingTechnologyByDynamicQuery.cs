@@ -7,11 +7,6 @@ using Kodlama.io.Devs.Application.Services.Repositories;
 using Kodlama.io.Devs.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Queries.GetListProgrammingTechnologyByDynamic
 {
@@ -36,7 +31,7 @@ namespace Kodlama.io.Devs.Application.Features.ProgrammingTechnologies.Queries.G
                 IPaginate<ProgrammingTechnology> programmingTechnologies = await _programmingTechnologyRepository.
                     GetListByDynamicAsync(
                     dynamic: request.Dynamic,
-                    include: p => p.Include( a => a.ProgrammingLanguage).Include(b=> b.ProgrammingTechnologyType),
+                    include: p => p.Include(a => a.ProgrammingLanguage).Include(b => b.ProgrammingTechnologyType),
                     index: request.PageRequest.Page,
                     size: request.PageRequest.PageSize);
 
