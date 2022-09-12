@@ -15,6 +15,13 @@ namespace Kodlama.io.Devs.Persistence
             services.AddScoped<IProgrammingLanguageRepository, EFProgrammingLanguageRepository>();
             services.AddScoped<IProgrammingTechnologyRepository, EFProgrammingTechnologyRepository>();
             services.AddScoped<IProgrammingTechnologyTypeRepository, EFProgrammingTechnologyTypeRepositroy>();
+            services.AddScoped<IUserProfileRepository, EFUserProfileRepository>();
+            services.AddScoped<IUserProfileSocialAccountRepository, EFUserProfileSocialAccountRepository>();
+            services.AddScoped<ISocialPlatformRepository, EFSocialPlatformRepository>();
+            services.AddScoped<IOperationClaimRepository, EFOperationClaimRepository>();
+            services.AddScoped<IUserOperationClaimRepository, EFUserOperationClaimRepository>();
+            services.AddScoped<IProgrammingTechnologyTypeRepository, EFProgrammingTechnologyTypeRepositroy>();
+
             return services;
         }
     }
